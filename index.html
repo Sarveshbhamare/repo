@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FirstPage</title>
+
+  <style>
+    @media (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
+}
+
+    button {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    -webkit-background: linear-gradient(to right, #ff7e5f, #feb47b); /* Safari */
+}
+
+    .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+    .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.flex-item {
+    flex: 1 1 300px; /* Flexible size */
+    padding: 20px;
+    background: lightgray;
+}
+
+    img {
+    max-width: 100%;
+    height: auto;
+}
+
+    /* Base styles (for mobile screens by default) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Flexible container */
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Responsive navigation */
+nav {
+    background: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Grid-based layout (for larger screens) */
+@media (min-width: 768px) {
+    .container {
+        max-width: 700px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1000px;
+    }
+}
+        /* Base styles (for mobile screens by default) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Flexible container */
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Responsive navigation */
+nav {
+    background: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Grid-based layout (for larger screens) */
+@media (min-width: 768px) {
+    .container {
+        max-width: 700px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1000px;
+    }
+}
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 60px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      padding: 10px;
+      z-index: 110;
+      font-family: Orbitron, Audiowide;
+      transition: background-color 0.3s ease;
+    }
+
+    .top-bar.scrolled {
+      background: rgba(22, 19, 34, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      margin-top: -80px;
+      border-radius: 0;
+    }
+
+    .video-container video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.3);
+      padding-top: 60px;
+    }
+
+    .overlay h1 {
+      font-size: 40px;
+      color: #ffffff;
+    }
+
+    .overlay p {
+      font-size: 20px;
+      margin-bottom: 3rem;
+      color: #ffffff;
+    }
+
+     .get-started-button {
+      background-color: #7b52d8;
+      color: #ffffff;
+      padding: 1rem 2rem;
+      font-size: 1.25rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      z-index: 3;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(123, 82, 216, 0.7);
+      }
+      70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(123, 82, 216, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(123, 82, 216, 0);
+      }
+    }
+
+    .get-started-button:hover {
+      background-color: #1c1434;
+    }
+
+    .bytelogo {
+      position: relative;
+      left: 0px;
+      top: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .bytelogo:hover {
+      color: #7b52d8;
+    }
+
+    .support {
+      color: rgb(255, 255, 255);
+      position: relative;
+      left: -750px;
+      top: -30px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .support-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: -100px;
+      background: rgba(22, 19, 34, 0.95);
+      border: 1px solid rgba(123, 82, 216, 0.3);
+      border-radius: 10px;
+      padding: 15px;
+      width: 250px;
+      z-index: 120;
+    }
+
+    .support:hover .support-dropdown {
+      display: block;
+    }
+
+    .support-item {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      transition: all 0.3s ease;
+      border-radius: 5px;
+    }
+
+    .support-item:hover {
+      background: rgba(123, 82, 216, 0.2);
+    }
+
+    .support-item i {
+      color: #7b52d8;
+      width: 20px;
+    }
+
+    .support-divider {
+      height: 1px;
+      background: rgba(123, 82, 216, 0.3);
+      margin: 10px 0;
+    }
+
+    .login {
+      color: rgb(255, 255, 255);
+      position: relative;
+      left: 790px;
+      top: -6px;
+      font-size: 20px;
+    }
+
+    /*.signup {
+      color: black;
+      position: relative;
+      top: -20px;
+      left: 790px;
+      font-size: 20px;
+    }*/
+
+
+    a {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+    }
+ 
+    .feature-title {
+      font-size: 1.4em;
+      margin-bottom: 15px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(123, 82, 216, 0.3);
+    }
+
+    .feature-card {
+      background: rgba(123, 82, 216, 0.1);
+      border: 1px solid rgba(123, 82, 216, 0.3);
+      padding: 30px;
+      border-radius: 15px;
+      width: 280px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-icon {
+      font-size: 2.5em;
+      color: #ffffff;
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .feature-title {
+      font-size: 1.4em;
+      margin-bottom: 15px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .feature-description {
+      color: #e0e0e0;
+      font-size: 0.9em;
+      line-height: 1.6;
+      margin: 0 auto;
+      max-width: 250px;
+    }
+
+    .server-container {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    .server-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 20px;
+      justify-items: center;
+    }
+
+    .features-section {
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    .features-heading, .section-heading {
+      background-color: #7b52d8;
+      color: white;
+      font-size: 30px;
+      padding: 10px 30px;
+      border-radius: 10px;
+      display: inline-block;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 15px rgba(123, 82, 216, 0.3);
+    }
+
+    .content-section {
+      text-align: center;
+      padding: 60px 0;
+      color: white;
+    }
+
+    .why-choose-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .why-choose-item {
+      background: rgba(123, 82, 216, 0.1);
+      border: 1px solid rgba(123, 82, 216, 0.3);
+      padding: 25px;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .why-choose-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .steps-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .step-item {
+      background: rgba(123, 82, 216, 0.1);
+      border: 1px solid rgba(123, 82, 216, 0.3);
+      padding: 25px;
+      border-radius: 15px;
+      width: 250px;
+      position: relative;
+    }
+
+    .step-number {
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      background: #7b52d8;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    .content-description {
+      color: #e0e0e0;
+      line-height: 1.6;
+      margin: 20px 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .testimonial-card {
+      background: rgba(123, 82, 216, 0.1);
+      border: 1px solid rgba(123, 82, 216, 0.3);
+      padding: 25px;
+      border-radius: 15px;
+      position: relative;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 20px;
+      color: #e0e0e0;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #7b52d8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+
+    .author-info h4 {
+      margin: 0;
+      color: white;
+    }
+
+    .author-info p {
+      margin: 5px 0 0;
+      font-size: 0.9em;
+      color: #e0e0e0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #1c1434 0%, #161322 50%, #0a0910 100%);
+      min-height: 100vh;
+    }
+
+    .footer {
+      color: white;
+      background-color: rgba(3, 2, 2, 0.7);
+      padding: 20px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(123, 82, 216, 0.3);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(123, 82, 216, 0.3);
+    }
+
+    .feature-icon {
+      font-size: 2.5em;
+      color: #ffffff;
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .feature-title {
+      font-size: 1.4em;
+      margin-bottom: 15px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .feature-description {
+      color: #e0e0e0;
+      font-size: 0.9em;
+      line-height: 1.6;
+      margin: 0 auto;
+      max-width: 250px;
+    }
+
+    .server-types-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .server-type-card {
+      background: rgba(123, 82, 216, 0.1);
+      border: 1px solid rgba(123, 82, 216, 0.3);
+      padding: 25px;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .server-type-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(123, 82, 216, 0.3);
+    }
+
+    .server-type-icon {
+      font-size: 3em;
+      color: #7b52d8;
+      margin-bottom: 20px;
+    }
+
+    .community-features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .community-card {
+      background: rgba(123, 82, 216, 0.1);
+      border: 1px solid rgba(123, 82, 216, 0.3);
+      padding: 25px;
+      border-radius: 15px;
+      width: 280px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .community-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(123, 82, 216, 0.3);
+    }
+
+    .stat-number {
+      font-size: 2.5em;
+      color: #7b52d8;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .sidebar-theme-toggle {
+      padding: 15px 25px;
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(123, 82, 216, 0.1);
+      margin: 20px;
+      border-radius: 8px;
+    }
+
+    .theme-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-color);
+    }
+
+    .theme-label i {
+      color: #7b52d8;
+    }
+
+    .theme-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 26px;
+    }
+
+    .theme-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #2c2640;
+      transition: 0.3s;
+      border-radius: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    .theme-switch input:checked + .slider {
+      background-color: #7b52d8;
+    }
+
+    .theme-switch input:checked + .slider:before {
+      transform: translateX(24px);
+    }
+
+    .slider .fa-sun {
+      color: #ffd43b;
+      font-size: 12px;
+      margin-left: 6px;
+    }
+
+    .slider .fa-moon {
+      color: #ffffff;
+      font-size: 12px;
+      margin-right: 6px;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar > *:last-child {
+      margin-top: auto;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <br>
+  <br>
+  <div class="top-bar">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <a href="#top" class="bytelogo">RavagerHost</a>
+        <div class="login">
+          <a href="Login1.html">Login</a>
+        </div>
+        <div class="space-x-4">
+          <div class="support">
+            Support
+            <div class="support-dropdown">
+              <a href="help-center.html" class="support-item">
+                <i class="fas fa-question-circle"></i>
+                Help Center
+              </a>
+              <a href="documentation.html" class="support-item">
+                <i class="fas fa-book"></i>
+                Documentation
+              </a>
+              <div class="support-divider"></div>
+              <a href="contact-support.html" class="support-item">
+                <i class="fas fa-envelope"></i>
+                Contact Support
+              </a>
+              <a href="live-chat.html" class="support-item">
+                <i class="fas fa-comments"></i>
+                Live Chat
+              </a>
+              <div class="support-divider"></div>
+              <a href="report-issue.html" class="support-item">
+                <i class="fas fa-bug"></i>
+                Report an Issue
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="video-container">
+    <video autoplay muted loop>
+      <source src="portal-in-minecraft.3840x2160.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay">
+      <h1>Welcome to RavagerHost</h1>
+      <p>Dive into a world of creativity, adventure, and endless possibilities. Build, explore, and survive with friends
+        or on your own.</p>
+        <a href="PS.html"><button class="get-started-button">Get Started</button></a>
+    </div>
+  </div>
+  <div class="features-section">
+    <h2 class="features-heading">Features</h2>
+    <div class="server-container">
+      <div class="server-features">
+        <div class="feature-card">
+          <i class="fas fa-cogs feature-icon"></i>
+          <h2 class="feature-title">Customizable</h2>
+          <p class="feature-description">Customize your server with plugins, mods, and unique configurations.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-shield-alt feature-icon"></i>
+          <h2 class="feature-title">DDOS Protected</h2>
+          <p class="feature-description">Advanced protection systems to keep your server safe 24/7.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-globe feature-icon"></i>
+          <h2 class="feature-title">Custom World</h2>
+          <p class="feature-description">Create and explore unique worlds with custom terrain and biomes.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-database feature-icon"></i>
+          <h2 class="feature-title">Backups</h2>
+          <p class="feature-description">Regular automated backups to ensure your world is always safe.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-chart-line feature-icon"></i>
+          <h2 class="feature-title">Server Monitoring</h2>
+          <p class="feature-description">Real-time performance monitoring and resource usage analytics.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-puzzle-piece feature-icon"></i>
+          <h2 class="feature-title">Mod Support</h2>
+          <p class="feature-description">Easy installation and management of your favorite Minecraft mods.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2 class="section-heading">Why Choose RavagerHost</h2>
+    <p class="content-description">Experience the next level of Minecraft server hosting with our premium features and dedicated support.</p>
+    
+    <div class="server-container">
+      <div class="why-choose-grid">
+        <div class="why-choose-item">
+          <i class="fas fa-rocket feature-icon"></i>
+          <h3>High Performance</h3>
+          <p>Enterprise-grade hardware ensures smooth gameplay with minimal lag</p>
+        </div>
+        <div class="why-choose-item">
+          <i class="fas fa-headset feature-icon"></i>
+          <h3>24/7 Support</h3>
+          <p>Our expert team is always ready to help you with any issues</p>
+        </div>
+        <div class="why-choose-item">
+          <i class="fas fa-server feature-icon"></i>
+          <h3>Instant Setup</h3>
+          <p>Get your server up and running in minutes with our automated system</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2 class="section-heading">Getting Started</h2>
+    <p class="content-description">Follow these simple steps to create your own Minecraft server</p>
+    
+    <div class="server-container">
+      <div class="steps-container">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <h3>Sign Up</h3>
+          <p>Create your account with RavagerHost</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <h3>Configure</h3>
+          <p>Customize your server settings</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <h3>Play!</h3>
+          <p>Start playing with your friends</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2 class="section-heading">Our Community</h2>
+    <p class="content-description">Join our growing community of Minecraft enthusiasts</p>
+    
+    <div class="server-container">
+      <div class="community-features">
+        <div class="community-card">
+          <i class="fas fa-users feature-icon"></i>
+          <div class="stat-number">10K+</div>
+          <h3>Active Players</h3>
+          <p>Join thousands of active players from around the world</p>
+        </div>
+        <div class="community-card">
+          <i class="fas fa-server feature-icon"></i>
+          <div class="stat-number">500+</div>
+          <h3>Active Servers</h3>
+          <p>Choose from hundreds of unique server experiences</p>
+        </div>
+        <div class="community-card">
+          <i class="fas fa-comments feature-icon"></i>
+          <div class="stat-number">24/7</div>
+          <h3>Community Support</h3>
+          <p>Get help from our friendly community members anytime</p>
+        </div>
+        <div class="community-card">
+          <i class="fas fa-calendar-alt feature-icon"></i>
+          <div class="stat-number">100+</div>
+          <h3>Events Monthly</h3>
+          <p>Participate in regular community events and competitions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer">
+      <h3>About us</h3>
+      <p>Contact us: support@ravagerhost.com</p>
+      <p>© 2025 RavagerHost. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    window.addEventListener('scroll', function() {
+      const topBar = document.querySelector('.top-bar');
+      if (window.scrollY > 50) {
+        topBar.classList.add('scrolled');
+      } else {
+        topBar.classList.remove('scrolled');
+      }
+    });
+
+    document.querySelector('.bytelogo').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeToggle = document.getElementById('themeToggle');
+      const html = document.documentElement;
+      
+      // Check saved theme
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      html.setAttribute('data-theme', savedTheme);
+      themeToggle.checked = savedTheme === 'light';
+
+      // Theme toggle handler
+      themeToggle.addEventListener('change', () => {
+        const newTheme = themeToggle.checked ? 'light' : 'dark';
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+      });
+    });
+  </script>
+</body>
+</html>

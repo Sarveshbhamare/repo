@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Main ravagerhost</title>
+    <style>
+
+    @media (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
+}
+
+    button {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    -webkit-background: linear-gradient(to right, #ff7e5f, #feb47b); /* Safari */
+}
+
+    .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+    .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.flex-item {
+    flex: 1 1 300px; /* Flexible size */
+    padding: 20px;
+    background: lightgray;
+}
+
+    img {
+    max-width: 100%;
+    height: auto;
+}
+
+    /* Base styles (for mobile screens by default) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Flexible container */
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Responsive navigation */
+nav {
+    background: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Grid-based layout (for larger screens) */
+@media (min-width: 768px) {
+    .container {
+        max-width: 700px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1000px;
+    }
+}
+        /* Base styles (for mobile screens by default) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Flexible container */
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Responsive navigation */
+nav {
+    background: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Grid-based layout (for larger screens) */
+@media (min-width: 768px) {
+    .container {
+        max-width: 700px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1000px;
+    }
+}
+
+        .top-bar {
+          position: fixed;
+        top: 0;
+        width: 100%;
+        height: 60px;
+       background: #161322;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        padding: 10px;
+        z-index: 110;
+        font-family: Orbitron, Audiowide;
+        }
+        .bytelogo {
+      position: relative;
+      left: 0px;
+      top: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .bytelogo:hover {
+      color: #2ecc71;
+    }
+    .support {
+      color: rgb(255, 255, 255);
+      position: relative;
+      left: -750px;
+      top:-30px;
+      font-size: 20px;
+    }
+    .profile {
+        position: relative;
+        left: 790px;
+        top: -6px;
+        font-size: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .profile i {
+        font-size: 22px;
+    }
+    .profile:hover {
+        color: #2ecc71;
+    }
+    .footer{
+     color: white;
+      background-color: #030202;
+    }
+    a {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+    }
+
+    /* Add these new styles */
+    .sidebar {
+        position: fixed;
+        left: -200px;
+        top: 60px;
+        height: calc(100vh - 60px);
+        width: 200px;
+        background: #1e1b2e;
+        z-index: 100;
+        padding: 40px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        overflow-y: auto;
+        transition: left 0.3s ease;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .server-icon {
+        width: 100%;
+        height: 48px;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        padding: 0 25px;
+        cursor: pointer;
+        transition: all 0.2s;
+        position: relative;
+        color: white;
+    }
+
+    .server-icon:hover {
+        background: #373447;
+    }
+
+    .server-icon i {
+        font-size: 18px;
+        width: 24px;
+        text-align: center;
+    }
+
+    .server-icon span {
+        margin-left: 15px;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .server-icon.active {
+        background: #373447;
+        border-left: 3px solid #2ecc71;
+    }
+
+    /* Add section divider */
+    .sidebar-divider {
+        width: 80%;
+        height: 1px;
+        background: #373447;
+        margin: 10px auto;
+    }
+
+    /* Add custom scrollbar styling */
+    .sidebar::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+        background: #1e1b2e;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+        background: #373447;
+        border-radius: 4px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb:hover {
+        background: #454258;
+    }
+
+    /* Add hamburger menu styles */
+    .hamburger {
+        position: relative;
+        left: -750px;
+        top: -30px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        z-index: 111;
+    }
+
+    .hamburger.active .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .hamburger.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    .hamburger-line {
+        width: 24px;
+        height: 2px;
+        background-color: white;
+        transition: all 0.3s ease;
+    }
+
+    /* Add main content wrapper styles */
+    .content-wrapper {
+        margin-left: 0;
+        transition: margin-left 0.3s ease;
+        min-height: 100vh;
+        padding: 80px 20px 20px 20px; /* Add padding to account for top bar */
+    }
+
+    .content-wrapper.shifted {
+        margin-left: 200px;
+    }
+
+    /* Update existing footer styles */
+    .footer {
+        color: white;
+        background-color: #030202;
+        text-align: center;
+        padding: 20px;
+        transition: margin-left 0.3s ease;
+
+    }
+
+    .footer.shifted {
+        margin-left: 200px;
+    }
+
+    /* Add styles for content sections */
+    .content-section {
+        display: none;
+        padding: 20px;
+        color: white;
+    }
+
+    .content-section.active {
+        display: block;
+    }
+
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+        font-family: Orbitron, Audiowide;
+        color: white;
+        border-bottom: 2px solid #1e1b2e;
+        padding-bottom: 10px;
+    }
+
+    /* Add button styles */
+    .action-buttons {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+        padding: 0 20px;
+    }
+
+    .server-btn {
+        padding: 12px 24px;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .start-btn {
+        background: #2ecc71;
+        color: white;
+    }
+
+    .start-btn:hover {
+        background: #27ae60;
+    }
+
+    .restart-btn {
+        background: #e74c3c;
+        color: white;
+    }
+
+    .restart-btn:hover {
+        background: #c0392b;
+    }
+
+    .server-btn i {
+        font-size: 18px;
+    }
+
+    .server-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    /* Add overlay style for clicking outside */
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 99; /* Below sidebar but above content */
+    }
+
+    .sidebar-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Add styles for server grid */
+    .server-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .server-card {
+        background: #1e1b2e;
+        border-radius: 8px;
+        padding: 20px;
+        color: white;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+    }
+
+    .server-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .server-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .server-name {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .server-status {
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 14px;
+    }
+
+    .status-online {
+        background: #2ecc71;
+    }
+
+    .status-offline {
+        background: #e74c3c;
+    }
+
+    .server-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .stat-item {
+        font-size: 14px;
+        color: #a8a8b3;
+    }
+
+    .stat-value {
+        color: white;
+        font-weight: bold;
+        margin-top: 4px;
+    }
+
+    /* Add styles for server options */
+    .content-container {
+        background: #1e1b2e;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .server-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .option-card {
+        background: #2f2d3f;
+        padding: 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .option-card:hover {
+        transform: translateY(-3px);
+        background: #373447;
+    }
+
+    .option-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+    }
+
+    .option-header i {
+        font-size: 20px;
+        color: #2ecc71;
+    }
+
+    .option-title {
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .option-description {
+        color: #a8a8b3;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    /* Add dropdown menu styles */
+    .profile-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #1e1b2e;
+        border-radius: 8px;
+        padding: 8px 0;
+        min-width: 180px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        display: none;
+        z-index: 1000;
+    }
+
+    .profile-dropdown.active {
+        display: block;
+    }
+
+    .dropdown-item {
+        padding: 10px 20px;
+        color: white;
+        display: flex;
+        margin-right: 110px;
+        text-align: center;
+        gap: 10px;
+        transition: background 0.2s;
+    }
+
+    .dropdown-item:hover {
+        background: #373447;
+    }
+
+    .dropdown-divider {
+        height: 1px;
+        background: #373447;
+        margin: 8px 0;
+    }
+
+    /* Add styles for log section */
+    .log-container {
+        background: #1e1b2e;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .log-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .log-filters {
+        display: flex;
+        gap: 10px;
+    }
+
+    .log-filter {
+        padding: 6px 12px;
+        background: #373447;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .log-filter.active {
+        background: #2ecc71;
+        color: white;
+    }
+
+    .log-entry {
+        padding: 12px;
+        border-radius: 4px;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .log-time {
+        color: #a8a8b3;
+        font-size: 12px;
+        min-width: 80px;
+    }
+
+    .log-type {
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        min-width: 60px;
+        text-align: center;
+    }
+
+    .log-type.info {
+        background: #3498db;
+        color: white;
+    }
+
+    .log-type.warning {
+        background: #f1c40f;
+        color: black;
+    }
+
+    .log-type.error {
+        background: #e74c3c;
+        color: white;
+    }
+
+    .log-type.success {
+        background: #2ecc71;
+        color: white;
+    }
+
+    .log-message {
+        flex-grow: 1;
+    }
+
+    .log-search {
+        width: 100%;
+        padding: 8px 12px;
+        background: #373447;
+        border: 1px solid #454258;
+        border-radius: 4px;
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    .log-search:focus {
+        border-color: #2ecc71;
+        outline: none;
+    }
+
+    .log-actions {
+        display: flex;
+        gap: 10px;
+    }
+
+    .log-action-btn {
+        padding: 6px 12px;
+        background: #373447;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: background 0.3s;
+    }
+
+    .log-action-btn:hover {
+        background: #454258;
+    }
+
+    /* Add styles for players section */
+    .players-dashboard {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .player-stat-card {
+        background: #1e1b2e;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .player-stat-value {
+        font-size: 32px;
+        font-weight: bold;
+        color: #2ecc71;
+        margin-bottom: 8px;
+    }
+
+    .player-stat-label {
+        color: #a8a8b3;
+        font-size: 14px;
+    }
+
+    .player-list-container {
+        background: #1e1b2e;
+        border-radius: 8px;
+        padding: 20px;
+    }
+
+    .player-list-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .player-search {
+        width: 300px;
+        padding: 8px 12px;
+        background: #373447;
+        border: 1px solid #454258;
+        border-radius: 4px;
+        color: white;
+    }
+
+    .player-filters {
+        display: flex;
+        gap: 10px;
+    }
+
+    .player-filter {
+        padding: 6px 12px;
+        background: #373447;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .player-filter.active {
+        background: #2ecc71;
+        color: white;
+    }
+
+    .player-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .player-table th {
+        text-align: left;
+        padding: 12px;
+        color: #a8a8b3;
+        border-bottom: 1px solid #373447;
+    }
+
+    .player-table td {
+        padding: 12px;
+        border-bottom: 1px solid #373447;
+    }
+
+    .player-status-badge {
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .player-actions {
+        display: flex;
+        gap: 8px;
+    }
+
+    .player-action-btn {
+        padding: 4px 8px;
+        background: #373447;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .player-action-btn:hover {
+        background: #454258;
+    }
+
+    .player-details {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .player-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        background: #373447;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .system-info {
+        margin-bottom: 20px;
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+    }
+
+    .info-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .info-label {
+        font-weight: bold;
+    }
+
+    .info-value {
+        text-align: right;
+    }
+
+    .software-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .plugin-card {
+        background: #1e1b2e;
+        border-radius: 8px;
+        padding: 20px;
+        color: white;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+    }
+
+    .plugin-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .plugin-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .plugin-title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .plugin-version {
+        font-size: 14px;
+        color: #a8a8b3;
+    }
+
+    .plugin-stats {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .plugin-stat {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .plugin-controls {
+        display: flex;
+        gap: 10px;
+    }
+
+    .plugin-btn {
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s;
+        border: none;
+    }
+
+    .plugin-btn.primary {
+        background: #2ecc71;
+        color: white;
+    }
+
+    .plugin-btn.primary:hover {
+        background: #27ae60;
+    }
+
+    .plugin-btn.secondary {
+        background: #373447;
+        color: white;
+    }
+
+    .plugin-btn.secondary:hover {
+        background: #454258;
+    }
+
+    .plugin-management {
+        margin-bottom: 20px;
+    }
+
+    .system-logs {
+        margin-bottom: 20px;
+    }
+
+    /* Add styles for world section */
+    .world-overview {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .world-card {
+        background: #1e1b2e;
+        border-radius: 8px;
+        padding: 20px;
+    }
+
+    .world-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        color: #2ecc71;
+    }
+
+    .dimension-tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .dimension-tab {
+        padding: 8px 16px;
+        background: #373447;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .dimension-tab.active {
+        background: #2ecc71;
+        color: white;
+    }
+
+    .world-stat {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #373447;
+    }
+
+    .world-stat:last-child {
+        border-bottom: none;
+    }
+
+    .backup-list {
+        display: grid;
+        gap: 10px;
+    }
+
+    .backup-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        background: #2f2d3f;
+        border-radius: 6px;
+    }
+
+    .backup-info {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .backup-date {
+        font-size: 14px;
+        color: #a8a8b3;
+    }
+
+    .backup-size {
+        font-size: 12px;
+        color: #a8a8b3;
+    }
+
+    .backup-actions {
+        display: flex;
+        gap: 8px;
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin: 15px 0;
+    }
+
+    .social-links a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+        color: #2ecc71;
+    }
+
+    .social-links i {
+        font-size: 20px;
+    }
+
+    /* Server Creation Styles */
+    .server-creation-wrapper {
+        padding: 20px;
+        color: white;
+    }
+
+    .template-section {
+        margin-bottom: 40px;
+    }
+
+    .template-section h3,
+    .config-section h3 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #2ecc71;
+    }
+
+    .template-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+
+    .template-card {
+        background: #1e1b2e;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .template-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .template-card.selected {
+        border: 2px solid #2ecc71;
+    }
+
+    .template-card img {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 15px;
+    }
+
+    .template-card h4 {
+        margin-bottom: 10px;
+        color: #2ecc71;
+    }
+
+    .template-card p {
+        font-size: 14px;
+        color: #a8a8b3;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+
+    .memory-slider {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .memory-slider input[type="range"] {
+        flex: 1;
+        height: 4px;
+        background: #373447;
+        border-radius: 2px;
+        outline: none;
+    }
+
+    .memory-slider input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        background: #2ecc71;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .memory-slider span {
+        min-width: 60px;
+    }
+
+    .advanced-options {
+        background: #1e1b2e;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+    }
+
+    .options-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 15px;
+    }
+
+    .toggle-switch {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+    }
+
+    .toggle-slider {
+        position: relative;
+        width: 40px;
+        height: 20px;
+        background: #373447;
+        border-radius: 10px;
+        transition: background 0.3s;
+    }
+
+    .toggle-switch input:checked + .toggle-slider {
+        background: #2ecc71;
+    }
+
+    .toggle-slider:before {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background: white;
+        border-radius: 50%;
+        top: 2px;
+        left: 2px;
+        transition: transform 0.3s;
+    }
+
+    .toggle-switch input:checked + .toggle-slider:before {
+        transform: translateX(20px);
+    }
+
+    .toggle-switch input {
+        display: none;
+    }
+
+    .pricing-section {
+        background: #1e1b2e;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .price-display {
+        margin: 20px 0;
+    }
+
+    .price-amount {
+        font-size: 36px;
+        font-weight: bold;
+        color: #2ecc71;
+    }
+
+    .price-period {
+        color: #a8a8b3;
+    }
+
+    .price-features {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .feature-item i {
+        color: #2ecc71;
+    }
+
+    .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+    }
+
+    .cancel-btn,
+    .create-btn {
+        padding: 12px 24px;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border: none;
+    }
+
+    .cancel-btn {
+        background: #373447;
+        color: white;
+    }
+
+    .create-btn {
+        background: #2ecc71;
+        color: white;
+    }
+
+    .create-btn:hover {
+        background: #27ae60;
+    }
+  </style>
+  <!-- Add Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body style="background-color: #030202;">
+    <!-- Add overlay div after body opening -->
+    <div class="sidebar-overlay"></div>
+    <br>
+    <br>
+    <div class="top-bar">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+          <div class="bytelogo" id="bytesBlockLogo">RavagerHost</div>
+          <div class="profile" id="profileBtn">
+            <i class="fas fa-user-circle"></i>
+            <span>Profile</span>
+            <div class="profile-dropdown" id="profileDropdown">
+                <div class="dropdown-item">
+                    <i class="fas fa-user"></i>
+                    Account
+                </div>
+                <div class="dropdown-item">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </div>
+                <div class="dropdown-item">
+                    <i class="fas fa-question-circle"></i>
+                    Help
+                </div>
+                <div class="dropdown-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </div>
+            </div>
+          </div>
+          <div class="hamburger">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add this after top-bar div and before footer -->
+    <div class="sidebar">
+        <div class="sidebar-divider"></div>
+        <div class="server-icon" data-tooltip="Create Server">
+            <i class="fas fa-plus-circle"></i>
+            <span>Create Server</span>
+        </div>
+        <div class="server-icon" data-tooltip="Server Settings">
+            <i class="fas fa-cog"></i>
+            <span>Server Settings</span>
+        </div>
+        <div class="server-icon" data-tooltip="Log">
+            <i class="fas fa-list-alt"></i>
+            <span>Log</span>
+        </div>
+        <div class="server-icon" data-tooltip="Players">
+            <i class="fas fa-users"></i>
+            <span>Players</span>
+        </div>
+        <div class="server-icon" data-tooltip="Software">
+            <i class="fas fa-code"></i>
+            <span>Software</span>
+        </div>
+        <div class="server-icon" data-tooltip="World">
+            <i class="fas fa-globe"></i>
+            <span>World</span>
+        </div>
+        <div class="server-icon" data-tooltip="Mods">
+            <i class="fas fa-puzzle-piece"></i>
+            <span>Mods</span>
+        </div>
+
+        <div class="sidebar-divider"></div>
+    </div>
+
+    <!-- Wrap your main content in this div -->
+    <div class="content-wrapper">
+        <div class="content-section active" id="home-content">
+            <h2 class="section-title">My Servers</h2>
+            <div class="server-grid">
+                <div class="server-card" onclick="showServerDetails('server1')">
+                    <div class="server-header">
+                        <div class="server-name">BytesBlock #1</div>
+                        <div class="server-status status-online">Online</div>
+                    </div>
+                    <div class="server-stats">
+                        <div class="stat-item">
+                            <div>Players</div>
+                            <div class="stat-value">42/100</div>
+                        </div>
+                        <div class="stat-item">
+                            <div>Uptime</div>
+                            <div class="stat-value">24h 13m</div>
+                        </div>
+                        <div class="stat-item">
+                            <div>Version</div>
+                            <div class="stat-value">1.19.2</div>
+                        </div>
+                        <div class="stat-item">
+                            <div>Location</div>
+                            <div class="stat-value">US East</div>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button class="server-btn start-btn" id="startBtn1">
+                            <i class="fas fa-play"></i>
+                            Start Server
+                        </button>
+                        <button class="server-btn restart-btn" id="restartBtn1">
+                            <i class="fas fa-sync"></i>
+                            Restart Server
+                        </button>
+                    </div>
+
+                    <div class="server-options">
+                        <div class="option-card">
+                            <div class="option-header">
+                                <i class="fas fa-memory"></i>
+                                <div class="option-title">Memory Settings</div>
+                            </div>
+                            <div class="option-description">
+                                Configure RAM allocation and memory limits.
+                            </div>
+                        </div>
+
+                        <div class="option-card">
+                            <div class="option-header">
+                                <i class="fas fa-network-wired"></i>
+                                <div class="option-title">Network Settings</div>
+                            </div>
+                            <div class="option-description">
+                                Manage port configurations and security.
+                            </div>
+                        </div>
+
+                        <div class="option-card">
+                            <div class="option-header">
+                                <i class="fas fa-shield-alt"></i>
+                                <div class="option-title">Backup Settings</div>
+                            </div>
+                            <div class="option-description">
+                                Configure automatic backups.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="server-card" onclick="showServerDetails('server2')">
+                    <div class="server-header">
+                        <div class="server-name">BytesBlock #2</div>
+                        <div class="server-status status-offline">Offline</div>
+                    </div>
+                    <div class="server-stats">
+                        <div class="stat-item">
+                            <div>Players</div>
+                            <div class="stat-value">0/100</div>
+                        </div>
+                        <div class="stat-item">
+                            <div>Uptime</div>
+                            <div class="stat-value">0h 0m</div>
+                        </div>
+                        <div class="stat-item">
+                            <div>Version</div>
+                            <div class="stat-value">1.19.2</div>
+                        </div>
+                        <div class="stat-item">
+                            <div>Location</div>
+                            <div class="stat-value">EU West</div>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button class="server-btn start-btn" id="startBtn2">
+                            <i class="fas fa-play"></i>
+                            Start Server
+                        </button>
+                        <button class="server-btn restart-btn" id="restartBtn2">
+                            <i class="fas fa-sync"></i>
+                            Restart Server
+                        </button>
+                    </div>
+
+                    <div class="server-options">
+                        <div class="option-card">
+                            <div class="option-header">
+                                <i class="fas fa-memory"></i>
+                                <div class="option-title">Memory Settings</div>
+                            </div>
+                            <div class="option-description">
+                                Configure RAM allocation and memory limits.
+                            </div>
+                        </div>
+
+                        <div class="option-card">
+                            <div class="option-header">
+                                <i class="fas fa-network-wired"></i>
+                                <div class="option-title">Network Settings</div>
+                            </div>
+                            <div class="option-description">
+                                Manage port configurations and security.
+                            </div>
+                        </div>
+
+                        <div class="option-card">
+                            <div class="option-header">
+                                <i class="fas fa-shield-alt"></i>
+                                <div class="option-title">Backup Settings</div>
+                            </div>
+                            <div class="option-description">
+                                Configure automatic backups.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" id="create-server-content">
+            <h2 class="section-title">Create New Server</h2>
+            
+            <div class="server-creation-wrapper">
+                <!-- Server Templates -->
+                <div class="template-section">
+                    <h3>Choose a Template</h3>
+                    <div class="template-grid">
+                        <div class="template-card" onclick="selectTemplate('vanilla')">
+                            <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/2/2d/Plains_Grass_Block.png" alt="Vanilla">
+                            <h4>Vanilla</h4>
+                            <p>Standard Minecraft server without modifications</p>
+                        </div>
+                        <div class="template-card" onclick="selectTemplate('spigot')">
+                            <img src="https://static.spigotmc.org/img/spigot.png" alt="Spigot">
+                            <h4>Spigot</h4>
+                            <p>Optimized server with plugin support</p>
+                        </div>
+                        <div class="template-card" onclick="selectTemplate('forge')">
+                            <img src="https://files.minecraftforge.net/static/images/logo.svg" alt="Forge">
+                            <h4>Forge</h4>
+                            <p>Mod-compatible server platform</p>
+                        </div>
+                        <div class="template-card" onclick="selectTemplate('paper')">
+                            <img src="https://papermc.io/images/logo.svg" alt="Paper">
+                            <h4>Paper</h4>
+                            <p>High-performance Spigot fork</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Server Configuration Form -->
+                <div class="config-section">
+                    <h3>Server Configuration</h3>
+                    <form id="serverConfigForm" class="server-config-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="serverName">Server Name</label>
+                                <input type="text" id="serverName" required placeholder="My Awesome Server">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="serverVersion">Minecraft Version</label>
+                                <select id="serverVersion" required>
+                                    <option value="">Select Version</option>
+                                    <option value="1.20.4">1.20.4 (Latest)</option>
+                                    <option value="1.19.2">1.19.2</option>
+                                    <option value="1.18.2">1.18.2</option>
+                                    <option value="1.16.5">1.16.5</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="serverLocation">Server Location</label>
+                                <select id="serverLocation" required>
+                                    <option value="">Select Location</option>
+                                    <option value="us-east">US East</option>
+                                    <option value="us-west">US West</option>
+                                    <option value="eu-west">EU West</option>
+                                    <option value="asia">Asia</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="serverMemory">Server Memory</label>
+                                <div class="memory-slider">
+                                    <input type="range" id="serverMemory" min="1" max="12" value="4" step="1">
+                                    <span id="memoryValue">2 GB</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="advanced-options">
+                            <h4>Advanced Options</h4>
+                            <div class="options-grid">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="pvp">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-label">PvP Enabled</span>
+                                </label>
+
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="whitelist">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-label">Whitelist</span>
+                                </label>
+
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="backup">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-label">Auto Backup</span>
+                                </label>
+
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="monitoring">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-label">Monitoring</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="pricing-section">
+                            <h4>Estimated Price</h4>
+                            <div class="price-display">
+                                <span class="price-amount">$0</span>
+                                <span class="price-period">/ month</span>
+                            </div>
+                            <div class="price-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>24/7 Uptime</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>DDoS Protection</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Instant Setup</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="cancel-btn">Cancel</button>
+                            <button type="submit" class="create-btn">
+                                <i class="fas fa-rocket"></i>
+                                Launch Server
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" id="server-details">
+            <h2 class="section-title">Server Settings</h2>
+            <div class="content-container">
+                <div class="content-grid">
+                    <div class="stat-card">
+                        <h3>Server Name</h3>
+                        <div class="stat-value">BytesBlock #1</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Server Status</h3>
+                        <div class="stat-value">Online</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Uptime</h3>
+                        <div class="stat-value">24h 13m</div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="server-btn start-btn" id="startBtn">
+                        <i class="fas fa-play"></i>
+                        Start Server
+                    </button>
+                    <button class="server-btn restart-btn" id="restartBtn">
+                        <i class="fas fa-sync"></i>
+                        Restart Server
+                    </button>
+                </div>
+
+                <div class="server-options">
+                    <div class="option-card">
+                        <div class="option-header">
+                            <i class="fas fa-memory"></i>
+                            <div class="option-title">Memory Settings</div>
+                        </div>
+                        <div class="option-description">
+                            Configure RAM allocation and memory limits for optimal performance.
+                        </div>
+                    </div>
+
+                    <div class="option-card">
+                        <div class="option-header">
+                            <i class="fas fa-network-wired"></i>
+                            <div class="option-title">Network Settings</div>
+                        </div>
+                        <div class="option-description">
+                            Manage port configurations and network security options.
+                        </div>
+                    </div>
+
+                    <div class="option-card">
+                        <div class="option-header">
+                            <i class="fas fa-shield-alt"></i>
+                            <div class="option-title">Backup Settings</div>
+                        </div>
+                        <div class="option-description">
+                            Configure automatic backups and restore points.
+                        </div>
+                    </div>
+
+                    <div class="option-card">
+                        <div class="option-header">
+                            <i class="fas fa-users-cog"></i>
+                            <div class="option-title">Access Control</div>
+                        </div>
+                        <div class="option-description">
+                            Manage operator permissions and whitelist settings.
+                        </div>
+                    </div>
+
+                    <div class="option-card">
+                        <div class="option-header">
+                            <i class="fas fa-terminal"></i>
+                            <div class="option-title">Console Commands</div>
+                        </div>
+                        <div class="option-description">
+                            Execute server commands and view console output.
+                        </div>
+                    </div>
+
+                    <div class="option-card">
+                        <div class="option-header">
+                            <i class="fas fa-puzzle-piece"></i>
+                            <div class="option-title">Plugin Manager</div>
+                        </div>
+                        <div class="option-description">
+                            Install, remove, and configure server plugins.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" id="log-content">
+            <div class="log-container">
+                <div class="log-header">
+                    <div class="log-filters">
+                        <div class="log-filter active">All</div>
+                        <div class="log-filter">Info</div>
+                        <div class="log-filter">Warnings</div>
+                        <div class="log-filter">Errors</div>
+                    </div>
+                    <div class="log-actions">
+                        <button class="log-action-btn">
+                            <i class="fas fa-download"></i>
+                            Export
+                        </button>
+                        <button class="log-action-btn">
+                            <i class="fas fa-trash"></i>
+                            Clear
+                        </button>
+                    </div>
+                </div>
+
+                <input type="text" class="log-search" placeholder="Search logs...">
+
+                <div class="log-entries">
+                    <div class="log-entry" style="background: #2f2d3f;">
+                        <div class="log-time">10:45:23</div>
+                        <div class="log-type success">SUCCESS</div>
+                        <div class="log-message">Server started successfully on port 25565</div>
+                    </div>
+
+                    <div class="log-entry">
+                        <div class="log-time">10:45:20</div>
+                        <div class="log-type info">INFO</div>
+                        <div class="log-message">Loading world 'world': 100%</div>
+                    </div>
+
+                    <div class="log-entry">
+                        <div class="log-time">10:45:15</div>
+                        <div class="log-type warning">WARN</div>
+                        <div class="log-message">High memory usage detected: 85% of allocated RAM</div>
+                    </div>
+
+                    <div class="log-entry">
+                        <div class="log-time">10:45:10</div>
+                        <div class="log-type error">ERROR</div>
+                        <div class="log-message">Failed to load plugin 'CustomPlugin' - File not found</div>
+                    </div>
+
+                    <div class="log-entry">
+                        <div class="log-time">10:45:05</div>
+                        <div class="log-type info">INFO</div>
+                        <div class="log-message">Player 'Steve' joined the game</div>
+                    </div>
+
+                    <div class="log-entry">
+                        <div class="log-time">10:45:00</div>
+                        <div class="log-type info">INFO</div>
+                        <div class="log-message">Preparing spawn area: 45%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" id="players-content">
+            <div class="players-dashboard">
+                <div class="player-stat-card">
+                    <div class="player-stat-value">42</div>
+                    <div class="player-stat-label">Online Players</div>
+                </div>
+                <div class="player-stat-card">
+                    <div class="player-stat-value">15,789</div>
+                    <div class="player-stat-label">Total Players</div>
+                </div>
+                <div class="player-stat-card">
+                    <div class="player-stat-value">3.2h</div>
+                    <div class="player-stat-label">Average Play Time</div>
+                </div>
+                <div class="player-stat-card">
+                    <div class="player-stat-value">89%</div>
+                    <div class="player-stat-label">Return Rate</div>
+                </div>
+            </div>
+
+            <div class="player-list-container">
+                <div class="player-list-header">
+                    <input type="text" class="player-search" placeholder="Search players...">
+                    <div class="player-filters">
+                        <div class="player-filter active">All</div>
+                        <div class="player-filter">Online</div>
+                        <div class="player-filter">Offline</div>
+                        <div class="player-filter">Banned</div>
+                    </div>
+                </div>
+
+                <table class="player-table">
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Rank</th>
+                            <th>Play Time</th>
+                            <th>Last Seen</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="player-details">
+                                    <div class="player-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <span>Player1</span>
+                                </div>
+                            </td>
+                            <td>Admin</td>
+                            <td>124h 35m</td>
+                            <td>Now</td>
+                            <td><span class="player-status-badge status-online">Online</span></td>
+                            <td>
+                                <div class="player-actions">
+                                    <button class="player-action-btn" title="Message">
+                                        <i class="fas fa-comment"></i>
+                                    </button>
+                                    <button class="player-action-btn" title="Kick">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                    <button class="player-action-btn" title="Ban">
+                                        <i class="fas fa-ban"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Add more player rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="content-section" id="software-content">
+            <div class="system-info">
+                <h2 class="section-title">System Information</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Java Version</div>
+                        <div class="info-value">Java 17.0.2</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Server Version</div>
+                        <div class="info-value">1.19.2</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Operating System</div>
+                        <div class="info-value">Ubuntu 22.04 LTS</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">CPU Usage</div>
+                        <div class="info-value">45%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="software-grid">
+                <div class="plugin-card">
+                    <div class="plugin-header">
+                        <div class="plugin-title">WorldEdit</div>
+                        <div class="plugin-version">v7.2.8</div>
+                    </div>
+                    <div class="plugin-stats">
+                        <div class="plugin-stat">
+                            <i class="fas fa-clock"></i> Running: 15d 4h
+                        </div>
+                        <div class="plugin-stat">
+                            <i class="fas fa-memory"></i> Memory: 128MB
+                        </div>
+                    </div>
+                    <div class="update-available">
+                        <i class="fas fa-arrow-up"></i> Update available: v7.2.9
+                    </div>
+                    <div class="plugin-controls">
+                        <button class="plugin-btn primary">
+                            <i class="fas fa-sync"></i> Update
+                        </button>
+                        <button class="plugin-btn secondary">
+                            <i class="fas fa-cog"></i> Configure
+                        </button>
+                    </div>
+                </div>
+
+                <div class="plugin-card">
+                    <div class="plugin-header">
+                        <div class="plugin-title">Essentials</div>
+                        <div class="plugin-version">v2.19.4</div>
+                    </div>
+                    <div class="plugin-stats">
+                        <div class="plugin-stat">
+                            <i class="fas fa-clock"></i> Running: 15d 4h
+                        </div>
+                        <div class="plugin-stat">
+                            <i class="fas fa-memory"></i> Memory: 256MB
+                        </div>
+                    </div>
+                    <div class="plugin-controls">
+                        <button class="plugin-btn secondary">
+                            <i class="fas fa-cog"></i> Configure
+                        </button>
+                    </div>
+                </div>
+
+                <div class="plugin-card">
+                    <div class="plugin-header">
+                        <div class="plugin-title">Vault</div>
+                        <div class="plugin-version">v1.7.3</div>
+                    </div>
+                    <div class="plugin-stats">
+                        <div class="plugin-stat">
+                            <i class="fas fa-clock"></i> Running: 15d 4h
+                        </div>
+                        <div class="plugin-stat">
+                            <i class="fas fa-memory"></i> Memory: 64MB
+                        </div>
+                    </div>
+                    <div class="plugin-controls">
+                        <button class="plugin-btn secondary">
+                            <i class="fas fa-cog"></i> Configure
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="plugin-management">
+                <h2 class="section-title">Plugin Management</h2>
+                <div class="action-buttons">
+                    <button class="server-btn">
+                        <i class="fas fa-plus"></i> Install New Plugin
+                    </button>
+                    <button class="server-btn">
+                        <i class="fas fa-sync"></i> Update All
+                    </button>
+                    <button class="server-btn">
+                        <i class="fas fa-download"></i> Backup Plugins
+                    </button>
+                </div>
+            </div>
+
+            <div class="system-logs">
+                <h2 class="section-title">System Logs</h2>
+                <div class="log-container">
+                    <div class="log-entry">
+                        <div class="log-time">10:45:23</div>
+                        <div class="log-type info">INFO</div>
+                        <div class="log-message">Plugin 'WorldEdit' loaded successfully</div>
+                    </div>
+                    <div class="log-entry">
+                        <div class="log-time">10:45:22</div>
+                        <div class="log-type info">INFO</div>
+                        <div class="log-message">Plugin 'Essentials' loaded successfully</div>
+                    </div>
+                    <div class="log-entry">
+                        <div class="log-time">10:45:21</div>
+                        <div class="log-type info">INFO</div>
+                        <div class="log-message">Plugin 'Vault' loaded successfully</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" id="world-content">
+            <div class="dimension-tabs">
+                <div class="dimension-tab active">Overworld</div>
+                <div class="dimension-tab">Nether</div>
+                <div class="dimension-tab">The End</div>
+            </div>
+
+            <div class="world-overview">
+                <div class="world-card">
+                    <div class="world-header">
+                        <i class="fas fa-globe"></i>
+                        <span>World Statistics</span>
+                    </div>
+                    <div class="world-stat">
+                        <span>Size</span>
+                        <span>4.2 GB</span>
+                    </div>
+                    <div class="world-stat">
+                        <span>Chunks Loaded</span>
+                        <span>1,245</span>
+                    </div>
+                    <div class="world-stat">
+                        <span>Entities</span>
+                        <span>856</span>
+                    </div>
+                    <div class="world-stat">
+                        <span>Players</span>
+                        <span>42/100</span>
+                    </div>
+                </div>
+
+                <div class="world-card">
+                    <div class="world-header">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Spawn Point</span>
+                    </div>
+                    <div class="world-stat">
+                        <span>X Coordinate</span>
+                        <span>256</span>
+                    </div>
+                    <div class="world-stat">
+                        <span>Y Coordinate</span>
+                        <span>64</span>
+                    </div>
+                    <div class="world-stat">
+                        <span>Z Coordinate</span>
+                        <span>-128</span>
+                    </div>
+                    <div class="world-stat">
+                        <span>Protection Radius</span>
+                        <span>16 blocks</span>
+                    </div>
+                </div>
+
+                <div class="world-card">
+                    <div class="world-header">
+                        <i class="fas fa-border-all"></i>
+                        <span>World Border</span>
+                    </div>
+                    <div class="world-stat">
+                        <span>Center X</span>
+                        <span>0</span>
+                    </div>
+                    <div class="world-stat">
+                        <span>Center Z</span>
+                        <span>0</span>
+                    </div>
+                    <div class="world-stat">
+                        <span>Size</span>
+                        <span>10000 blocks</span>
+                    </div>
+                    <div class="world-stat">
+                        <span>Damage Buffer</span>
+                        <span>5 blocks</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="world-card">
+                <div class="world-header">
+                    <i class="fas fa-history"></i>
+                    <span>World Backups</span>
+                </div>
+                <div class="backup-list">
+                    <div class="backup-item">
+                        <div class="backup-info">
+                            <div>Backup #1</div>
+                            <div class="backup-date">2024-02-20 10:00 AM</div>
+                            <div class="backup-size">4.1 GB</div>
+                        </div>
+                        <div class="backup-actions">
+                            <button class="plugin-btn secondary">
+                                <i class="fas fa-download"></i> Restore
+                            </button>
+                            <button class="plugin-btn secondary">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                    <div class="backup-item">
+                        <div class="backup-info">
+                            <div>Backup #2</div>
+                            <div class="backup-date">2024-02-19 10:00 AM</div>
+                            <div class="backup-size">4.0 GB</div>
+                        </div>
+                        <div class="backup-actions">
+                            <button class="plugin-btn secondary">
+                                <i class="fas fa-download"></i> Restore
+                            </button>
+                            <button class="plugin-btn secondary">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="server-btn primary">
+                    <i class="fas fa-plus"></i> Create Backup
+                </button>
+                <button class="server-btn">
+                    <i class="fas fa-sync"></i> Reset World
+                </button>
+                <button class="server-btn">
+                    <i class="fas fa-download"></i> Export World
+                </button>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer">
+                <h3>About us</h3>
+                <p>Contact us: ravagerhost@support.in.com</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#"><i class="fab fa-youtube"></i> Youtube</a>
+                    <a href="#"><i class="fab fa-discord"></i> Discord</a>
+                    <a href="#"><i class="fab fa-x"></i> X</a>
+                </div>
+                <p>© 2025 RAVAGERHOST . All rights reserved.</p>
+            </div>
+
+        </footer>
+    </div>
+
+    <!-- Add this script before closing body tag -->
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const sidebar = document.querySelector('.sidebar');
+        const contentWrapper = document.querySelector('.content-wrapper');
+        const footer = document.querySelector('.footer');
+        const serverIcons = document.querySelectorAll('.server-icon');
+        const contentSections = document.querySelectorAll('.content-section');
+        const overlay = document.querySelector('.sidebar-overlay');
+        const profileBtn = document.getElementById('profileBtn');
+        const profileDropdown = document.getElementById('profileDropdown');
+
+        // Function to close sidebar
+        function closeSidebar() {
+            hamburger.classList.remove('active');
+            sidebar.classList.remove('active');
+            contentWrapper.classList.remove('shifted');
+            footer.classList.remove('shifted');
+            overlay.classList.remove('active');
+        }
+
+        // Function to open sidebar
+        function openSidebar() {
+            hamburger.classList.add('active');
+            sidebar.classList.add('active');
+            contentWrapper.classList.add('shifted');
+            footer.classList.add('shifted');
+            overlay.classList.add('active');
+        }
+
+        // Toggle sidebar on hamburger click
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent event from bubbling
+            if (sidebar.classList.contains('active')) {
+                closeSidebar();
+            } else {
+                openSidebar();
+            }
+        });
+
+        // Close sidebar when clicking overlay
+        overlay.addEventListener('click', closeSidebar);
+
+        // Prevent sidebar from closing when clicking inside it
+        sidebar.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        // Add click handlers for server icons
+        serverIcons.forEach(icon => {
+            icon.addEventListener('click', () => {
+                // Remove active class from all icons and sections
+                serverIcons.forEach(i => i.classList.remove('active'));
+                contentSections.forEach(section => section.classList.remove('active'));
+
+                // Add active class to clicked icon
+                icon.classList.add('active');
+
+                // Show corresponding content section
+                const tooltip = icon.getAttribute('data-tooltip').toLowerCase();
+                const contentId = `${tooltip.replace(' ', '-')}-content`;
+                document.getElementById(contentId).classList.add('active');
+            });
+        });
+
+        // Add this to your existing script
+        const startBtn = document.getElementById('startBtn');
+        const restartBtn = document.getElementById('restartBtn');
+        
+        startBtn.addEventListener('click', function() {
+            if (this.innerHTML.includes('Start')) {
+                this.innerHTML = '<i class="fas fa-stop"></i> Stop Server';
+                this.style.background = '#e74c3c';
+            } else {
+                this.innerHTML = '<i class="fas fa-play"></i> Start Server';
+                this.style.background = '#2ecc71';
+            }
+        });
+
+        restartBtn.addEventListener('click', function() {
+            this.disabled = true;
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Restarting...';
+            
+            // Simulate restart process
+            setTimeout(() => {
+                this.disabled = false;
+                this.innerHTML = '<i class="fas fa-sync"></i> Restart Server';
+            }, 3000);
+        });
+
+        // Add this to your existing script
+        const bytesBlockLogo = document.getElementById('bytesBlockLogo');
+        const settingsContent = document.getElementById('server-details');
+        
+        bytesBlockLogo.addEventListener('click', () => {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.server-icon').forEach(icon => {
+                icon.classList.remove('active');
+            });
+            
+            settingsContent.classList.add('active');
+            document.querySelector('[data-tooltip="Server Settings"]').classList.add('active');
+            
+            openSidebar();
+        });
+
+        // Close sidebar on window resize if screen becomes too small
+        window.addEventListener('resize', () => {
+            if (window.innerWidth < 768) { // You can adjust this breakpoint
+                closeSidebar();
+            }
+        });
+
+        // Add function to show server details
+        function showServerDetails(serverId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            document.getElementById('server-details').classList.add('active');
+            document.querySelector('[data-tooltip="Server Settings"]').classList.add('active');
+            
+            // Update server details content based on serverId if needed
+            // You can customize the content based on which server was clicked
+        }
+
+        // Update button handlers for both servers
+        ['1', '2'].forEach(serverId => {
+            const startBtn = document.getElementById(`startBtn${serverId}`);
+            const restartBtn = document.getElementById(`restartBtn${serverId}`);
+            
+            startBtn.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent card click
+                if (this.innerHTML.includes('Start')) {
+                    this.innerHTML = '<i class="fas fa-stop"></i> Stop Server';
+                    this.style.background = '#e74c3c';
+                } else {
+                    this.innerHTML = '<i class="fas fa-play"></i> Start Server';
+                    this.style.background = '#2ecc71';
+                }
+            });
+
+            restartBtn.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent card click
+                this.disabled = true;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Restarting...';
+                
+                setTimeout(() => {
+                    this.disabled = false;
+                    this.innerHTML = '<i class="fas fa-sync"></i> Restart Server';
+                }, 3000);
+            });
+        });
+
+        // Update BytesBlock logo click to always show home page
+        bytesBlockLogo.addEventListener('click', () => {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            document.getElementById('home-content').classList.add('active');
+            openSidebar();
+        });
+
+        profileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', () => {
+            profileDropdown.classList.remove('active');
+        });
+
+        // Prevent dropdown from closing when clicking inside it
+        profileDropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        function selectTemplate(template) {
+            document.querySelectorAll('.template-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            event.currentTarget.classList.add('selected');
+        }
+
+        // Memory slider functionality
+        const memorySlider = document.getElementById('serverMemory');
+        const memoryValue = document.getElementById('memoryValue');
+        
+        memorySlider.addEventListener('input', function() {
+            memoryValue.textContent = this.value + ' GB';
+            updatePrice();
+        });
+
+        // Price update function
+        function updatePrice() {
+            const memory = parseInt(memorySlider.value);
+            const basePrice = 5;
+            const pricePerGb = 1.5;
+            const totalPrice = basePrice + (memory * pricePerGb);
+            document.querySelector('.price-amount').textContent = '$' + totalPrice.toFixed(2);
+        }
+
+        // Form submission
+        document.getElementById('serverConfigForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically handle the form submission
+            alert('Server creation initiated! This would typically connect to your backend.');
+        });
+    </script>
+</body>
+</html>
